@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<title>Facture FNE</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Montserrat,sans-serif;
+
+    background:#d3dea5;
+
+    margin-top:7px;
+    margin-bottom:0;
+
+    padding-top:20px;
+    padding-bottom:0;
+
+}
+
+
+/* =====================================================
+   CONTENEUR PRINCIPAL
+   ===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:705px;
+
+    margin:auto;
+
+    /* Image de fond ajoutée */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("Images.jpg");
+    background-size: cover;          /* L'image recouvre tout le carré */
+    background-position: center;     /* L'image est centrée */
+    background-repeat: no-repeat;    /* Évite la répétition */
+    background-color: #ffffff;
+
+    border-radius:15px;
+
+    padding:35px 30px;
+
+    box-shadow:
+        0 2px 10px
+        rgba(149,149,149,0.032);
+
+}
+
+
+/* =====================================================
+   LOGO ABAYAS
+   ===================================================== */
+
+.ABAYAS{
+
+    text-align:center;
+
+}
+
+.ABAYAS img{
+
+    width:380px;
+
+    max-width:100%;
+
+    height:auto;
+
+    display:inline-block;
+
+}
+
+
+/* =====================================================
+   SLOGAN PREMIUM
+   ===================================================== */
+
+.premium-slogan{
+
+    text-align:center;
+
+    margin:25px auto 8px;
+
+    padding:5px 10px 0;
+
+    max-width:100%;
+
+}
+
+
+/* Ligne contenant le texte */
+
+.slogan-line{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    color:#143e6e;
+
+    font-family:Great Vibes;
+
+    font-size:35px;
+
+    font-weight:500;
+
+    letter-spacing:.2px;
+
+    line-height:1.5;
+
+    transition:
+        transform .4s ease,
+        letter-spacing .4s ease;
+
+}
+
+
+/* =====================================================
+   LETTRES ANIMÉES
+   ===================================================== */
+
+.slogan-letter{
+
+    display:inline-block;
+
+    opacity:0;
+
+    transform:
+        translateY(12px)
+        rotateX(-45deg);
+
+    animation:
+        letterAppear .55s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+}
+
+
+/* =====================================================
+   MOTS MIS EN VALEUR
+   ===================================================== */
+
+.slogan-highlight{
+
+    font-weight:650;
+
+    color:#c79b19;
+
+    position:relative;
+
+}
+
+
+/* =====================================================
+   CURSEUR D'ÉCRITURE
+   ===================================================== */
+
+.typing-cursor{
+
+    width:2px;
+
+    height:24px;
+
+    margin-left:5px;
+
+    background:#c79b19;
+
+    display:inline-block;
+
+    animation:
+        cursorBlink .75s infinite;
+
+}
+
+
+/* =====================================================
+   ANIMATION DES LETTRES
+   ===================================================== */
+
+@keyframes letterAppear{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(12px)
+            rotateX(-45deg);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            translateY(-2px)
+            rotateX(5deg);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            rotateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   ANIMATION CURSEUR
+   ===================================================== */
+
+@keyframes cursorBlink{
+
+    0%,45%{
+
+        opacity:1;
+
+    }
+
+    46%,100%{
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   LIGNE DORÉE SOUS LE SLOGAN
+   ===================================================== */
+
+.gold-line{
+
+    width:0;
+
+    height:2px;
+
+    margin:8px auto 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #c79b19,
+            #e7c65c,
+            #c79b19,
+            transparent
+        );
+
+    animation:
+
+        lineAppear 1.2s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+    animation-delay:3.2s;
+
+}
+
+
+/* Animation ligne */
+
+@keyframes lineAppear{
+
+    from{
+
+        width:0;
+
+        opacity:0;
+
+    }
+
+    to{
+
+        width:150px;
+
+        opacity:1;
+
+    }
+
+}
+
+
+/* =====================================================
+   EFFET INTERACTIF SUR LE SLOGAN
+   ===================================================== */
+
+.premium-slogan:hover
+.slogan-line{
+
+    transform:scale(1.025);
+
+    letter-spacing:.5px;
+
+}
+
+
+/* =====================================================
+   RÉSEAUX SOCIAUX
+   ===================================================== */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+}
+
+
+/* Liens */
+
+.socials a{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:48px;
+
+    height:48px;
+
+    text-decoration:none;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+
+/* Effet au survol */
+
+.socials a:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.15);
+
+}
+
+
+/* Images */
+
+.socials img{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:contain;
+
+}
+
+
+/* =====================================================
+   EFFET D'APPARITION DES RÉSEAUX
+   ===================================================== */
+
+.socials a{
+
+    opacity:0;
+
+    transform:translateY(12px);
+
+    animation:
+        socialAppear .6s ease forwards;
+
+}
+
+
+/* Délais différents */
+
+.socials a:nth-child(1){
+
+    animation-delay:3.8s;
+
+}
+
+.socials a:nth-child(2){
+
+    animation-delay:4s;
+
+}
+
+.socials a:nth-child(3){
+
+    animation-delay:4.2s;
+
+}
+
+.socials a:nth-child(4){
+
+    animation-delay:4.4s;
+
+}
+
+
+/* Animation */
+
+@keyframes socialAppear{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE SMARTPHONE
+   ===================================================== */
+
+@media(max-width:600px){
+
+    .container{
+
+        padding:25px 20px;
+
+        max-width:300px;
+
+    }
+
+
+    /* Logo */
+
+    .ABAYAS img{
+
+        width:100%;
+
+    }
+
+
+    /* Slogan */
+
+    .premium-slogan{
+
+        margin-top:18px;
+
+        padding-left:5px;
+
+        padding-right:5px;
+
+    }
+
+
+    .slogan-line{
+
+        font-size:16px;
+
+        line-height:1.6;
+
+    }
+
+
+    .typing-cursor{
+
+        height:19px;
+
+        width:1.5px;
+
+    }
+
+
+    /* Ligne dorée */
+
+    .gold-line{
+
+        margin-top:6px;
+
+    }
+
+
+    /* Réseaux */
+
+    .socials{
+
+        gap:15px;
+
+        margin-top:15px;
+
+    }
+
+
+    .socials a{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+
+    .socials img{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+}
+
+
+/* =====================================================
+   TRÈS PETITS ÉCRANS
+   ===================================================== */
+
+@media(max-width:360px){
+
+    .slogan-line{
+
+        font-size:14px;
+
+    }
+
+
+    .gold-line{
+
+        width:110px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =================================================
+         LOGO ABAYAS
+         ================================================= -->
+
+    <div class="ABAYAS">
+
+        <img src="ABAYAS.png"
+             alt="Logo ABAYAS">
+
+    </div>
+
+
+
+    <!-- =================================================
+         SLOGAN ANIMÉ
+         ================================================= -->
+
+    <div class="premium-slogan">
+
+        <div class="slogan-line">
+
+            <span id="sloganText"></span>
+
+            <span class="typing-cursor"></span>
+
+        </div>
+
+
+        <div class="gold-line">
+
+            <span></span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         RÉSEAUX SOCIAUX
+         ================================================= -->
+
+    <div class="socials">
+
+
+        <!-- WHATSAPP -->
+
+        <a href="https://wa.me/2250759314314"
+
+           target="_blank"
+
+           rel="noopener noreferrer"
+
+           title="WhatsApp">
+
+            <img src="whatsapp.svg"
+                 alt="WhatsApp">
+
+        </a>
+
+
+
+        <!-- FACEBOOK -->
+
+        <a href="https://web.facebook.com/profile.php?id=100083013870655"
+
+           target="_blank"
+
+           rel="noopener noreferrer"
+
+           title="Facebook">
+
+            <img src="facebook.svg"
+                 alt="Facebook">
+
+        </a>
+
+
+
+        <!-- TIKTOK -->
+
+        <a href="https://www.tiktok.com/@reinedesabayas2"
+
+           target="_blank"
+
+           rel="noopener noreferrer"
+
+           title="TikTok">
+
+            <img src="tiktok.svg"
+                 alt="TikTok">
+
+        </a>
+
+
+
+        <!-- EMAIL -->
+
+        <a href="mailto:reinedesabayas@gmail.com"
+
+           title="Envoyer un email">
+
+            <img src="gmail-2026.svg"
+                 alt="Email">
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   TEXTE DU SLOGAN
+   ===================================================== */
+
+const slogan =
+"Offrez l élégance à vos proches";
+
+
+const sloganElement =
+document.getElementById("sloganText");
+
+
+/* =====================================================
+   MOTS À METTRE EN VALEUR
+   ===================================================== */
+
+const motsPremium = [
+
+    "élégance",
+
+    "proches"
+
+];
+
+
+/* =====================================================
+   CRÉATION DU TEXTE LETTRE PAR LETTRE
+   ===================================================== */
+
+let position = 0;
+
+
+/* Séparation des mots */
+
+const mots =
+slogan.split(" ");
+
+
+mots.forEach((mot,index)=>{
+
+
+    /* Création du conteneur du mot */
+
+    const motContainer =
+    document.createElement("span");
+
+
+    /* Vérification du mot important */
+
+    const motNettoye =
+    mot.replace(/[.,!?]/g,"");
+
+
+    if(
+        motsPremium.includes(motNettoye)
+    ){
+
+        motContainer.classList.add(
+            "slogan-highlight"
+        );
+
+    }
+
+
+    /* Création des lettres */
+
+    [...mot].forEach((lettre)=>{
+
+
+        const span =
+        document.createElement("span");
+
+
+        span.classList.add(
+            "slogan-letter"
+        );
+
+
+        span.textContent =
+        lettre;
+
+
+        /*
+         * Décalage progressif
+         * entre chaque lettre
+         */
+
+        span.style.animationDelay =
+        `${position * 0.065}s`;
+
+
+        motContainer.appendChild(
+            span
+        );
+
+
+        position++;
+
+    });
+
+
+    /* Ajout du mot */
+
+    sloganElement.appendChild(
+        motContainer
+    );
+
+
+    /* Ajout de l'espace */
+
+    if(
+        index < mots.length - 1
+    ){
+
+        const espace =
+        document.createElement("span");
+
+
+        espace.innerHTML =
+        "&nbsp;";
+
+
+        sloganElement.appendChild(
+            espace
+        );
+
+
+        position += .5;
+
+    }
+
+});
+
+
+/* =====================================================
+   DISPARITION DU CURSEUR EXACTEMENT À LA FIN
+   ===================================================== */
+
+const lettres = document.querySelectorAll(".slogan-letter");
+
+if (lettres.length > 0) {
+
+    const derniereLettre = lettres[lettres.length - 1];
+
+    derniereLettre.addEventListener("animationend", () => {
+
+        const cursor =
+        document.querySelector(".typing-cursor");
+
+        if (cursor) {
+
+            cursor.style.transition =
+                "opacity 0.35s ease";
+
+            cursor.style.opacity = "0";
+
+            /* Suppression complète après le fondu */
+
+            setTimeout(() => {
+
+                cursor.style.display = "none";
+
+            }, 350);
+
+        }
+
+    });
+
+}
+</script>
+
+
+</body>
+
+</html>
+```
