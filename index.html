@@ -15,7 +15,7 @@
       href="https://fonts.gstatic.com"
       crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Great+Vibes&display=swap"
       rel="stylesheet">
 
 <title>Facture FNE</title>
@@ -39,8 +39,6 @@ body{
 
     font-family:Montserrat,sans-serif;
 
-    background:#d3dea5;
-
     margin:0;
 
     padding:20px;
@@ -52,6 +50,66 @@ body{
     justify-content:center;
 
     align-items:center;
+
+    position:relative;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   IMAGE DE FOND
+   ===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:url("images.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    /* ================================================
+       OPACITÉ DE L'IMAGE DE FOND
+       Modifie cette valeur selon ton besoin :
+       
+       1    = image très visible
+       0.7  = visible
+       0.5  = moyenne
+       0.35 = légère
+       0.1  = très légère
+       ================================================ */
+
+    opacity:0.35;
+
+    z-index:-2;
+
+}
+
+
+/* =====================================================
+   VOILE BLANC AU-DESSUS DE L'IMAGE
+   ===================================================== */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0, 0, 0, 0.547);
+
+    z-index:-1;
 
 }
 
@@ -126,7 +184,9 @@ body{
 }
 
 
-/* Ligne contenant le texte */
+/* =====================================================
+   LIGNE CONTENANT LE TEXTE
+   ===================================================== */
 
 .slogan-line{
 
@@ -140,7 +200,7 @@ body{
 
     color:#143e6e;
 
-    font-family:Great Vibes;
+    font-family:"Great Vibes",cursive;
 
     font-size:35px;
 
@@ -289,7 +349,6 @@ body{
     margin:8px auto 0;
 
     background:
-
         linear-gradient(
             90deg,
             transparent,
@@ -300,7 +359,6 @@ body{
         );
 
     animation:
-
         lineAppear 1.2s
         cubic-bezier(.2,.8,.2,1)
         forwards;
@@ -310,7 +368,9 @@ body{
 }
 
 
-/* Animation ligne */
+/* =====================================================
+   ANIMATION LIGNE
+   ===================================================== */
 
 @keyframes lineAppear{
 
@@ -368,7 +428,9 @@ body{
 }
 
 
-/* Liens */
+/* =====================================================
+   LIENS
+   ===================================================== */
 
 .socials a{
 
@@ -391,7 +453,9 @@ body{
 }
 
 
-/* Effet au survol */
+/* =====================================================
+   EFFET AU SURVOL
+   ===================================================== */
 
 .socials a:hover{
 
@@ -402,7 +466,9 @@ body{
 }
 
 
-/* Images */
+/* =====================================================
+   IMAGES DES RÉSEAUX
+   ===================================================== */
 
 .socials img{
 
@@ -431,7 +497,9 @@ body{
 }
 
 
-/* Délais différents */
+/* =====================================================
+   DÉLAIS DIFFÉRENTS
+   ===================================================== */
 
 .socials a:nth-child(1){
 
@@ -458,7 +526,9 @@ body{
 }
 
 
-/* Animation */
+/* =====================================================
+   ANIMATION RÉSEAUX
+   ===================================================== */
 
 @keyframes socialAppear{
 
@@ -840,7 +910,7 @@ mots.forEach((mot,index)=>{
 
 
         sloganElement.appendChild(
-            espace
+        espace
         );
 
 
@@ -855,37 +925,52 @@ mots.forEach((mot,index)=>{
    DISPARITION DU CURSEUR EXACTEMENT À LA FIN
    ===================================================== */
 
-const lettres = document.querySelectorAll(".slogan-letter");
+const lettres =
+document.querySelectorAll(".slogan-letter");
+
 
 if (lettres.length > 0) {
 
-    const derniereLettre = lettres[lettres.length - 1];
+    const derniereLettre =
+    lettres[lettres.length - 1];
 
-    derniereLettre.addEventListener("animationend", () => {
 
-        const cursor =
-        document.querySelector(".typing-cursor");
+    derniereLettre.addEventListener(
+        "animationend",
+        () => {
 
-        if (cursor) {
+            const cursor =
+            document.querySelector(
+                ".typing-cursor"
+            );
 
-            cursor.style.transition =
-                "opacity 0.35s ease";
 
-            cursor.style.opacity = "0";
+            if (cursor) {
 
-            /* Suppression complète après le fondu */
+                cursor.style.transition =
+                    "opacity 0.35s ease";
 
-            setTimeout(() => {
 
-                cursor.style.display = "none";
+                cursor.style.opacity =
+                    "0";
 
-            }, 350);
+
+                /* Suppression complète */
+
+                setTimeout(() => {
+
+                    cursor.style.display =
+                        "none";
+
+                },350);
+
+            }
 
         }
-
-    });
+    );
 
 }
+
 </script>
 
 
